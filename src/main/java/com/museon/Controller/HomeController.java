@@ -3,16 +3,19 @@ package com.museon.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Handles requests for the application home page.
- */
+import com.museon.Service.UserService;
+
 @Controller
 public class HomeController {
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping( value="/signUp" )
 	public ModelAndView signUp (
@@ -25,11 +28,20 @@ public class HomeController {
 	
 	@RequestMapping( value="/signProc", method= RequestMethod.POST )
 	public ModelAndView signProc (
+			@RequestParam( value="userId" ) String userId,
+			@RequestParam( value="userPw" ) String userPw,
 			HttpServletRequest request, HttpServletResponse response
 			) {
 		
 		ModelAndView mav = new ModelAndView("/user/fail-signUp");
+		
+		/*System.out.println( userId );
+		System.out.println( userPw );*/
 		int result = 0;
+		
+		result = userService.signCheck( userId, userPw );
+		
+		
 		if ( result >= 1 ) {
 			mav.setViewName("/user/success-signUp");
 		}
