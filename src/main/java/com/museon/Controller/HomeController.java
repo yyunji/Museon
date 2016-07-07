@@ -35,8 +35,6 @@ public class HomeController {
 		
 		ModelAndView mav = new ModelAndView("/user/fail-signUp");
 		
-		/*System.out.println( userId );
-		System.out.println( userPw );*/
 		int result = 0;
 		
 		result = userService.signCheck( userId, userPw );
