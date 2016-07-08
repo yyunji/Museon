@@ -10,3 +10,5 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx }/css/library/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/library/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="${ctx }/css/common.css">

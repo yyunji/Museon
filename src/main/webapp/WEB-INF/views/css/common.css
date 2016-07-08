@@ -1,0 +1,8 @@
+.btn-maincolor {
+	background: #383325;
+	color: #fff;
+}
+.btn-maincolor:HOVER,
+.btn-maincolor:FOCUS {
+	color: #fff;
+}

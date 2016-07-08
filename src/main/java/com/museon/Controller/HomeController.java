@@ -17,6 +17,14 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 	
+	@RequestMapping ( value="/" )
+	public ModelAndView index (
+			HttpServletRequest request, HttpServletResponse response
+			) {
+		ModelAndView mav = new ModelAndView("/index");
+		return mav;
+	}
+	
 	@RequestMapping( value="/signUp" )
 	public ModelAndView signUp (
 			HttpServletRequest request, HttpServletResponse response
