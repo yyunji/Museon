@@ -34,25 +34,25 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping( value="/signProc", method= RequestMethod.POST )
-	public ModelAndView signProc (
-			@RequestParam( value="userId" ) String userId,
-			@RequestParam( value="userPw" ) String userPw,
-			HttpServletRequest request, HttpServletResponse response
-			) {
-		
-		ModelAndView mav = new ModelAndView("/user/fail-signUp");
-		
-		int result = 0;
-		
-		result = userService.signCheck( userId, userPw );
-		
-		
-		if ( result >= 1 ) {
-			mav.setViewName("/user/success-signUp");
-		}
-		
-		return mav;
-	}
+//	@RequestMapping( value="/signProc", method= RequestMethod.POST )
+//	public ModelAndView signProc (
+//			@RequestParam( value="userId" ) String userId,
+//			@RequestParam( value="userPw" ) String userPw,
+//			HttpServletRequest request, HttpServletResponse response
+//			) {
+//		
+//		ModelAndView mav = new ModelAndView("/user/fail-signUp");
+//		
+//		int result = 0;
+//		
+//		result = userService.signCheck( userId, userPw );
+//		
+//		
+//		if ( result >= 1 ) {
+//			mav.setViewName("/user/success-signUp");
+//		}
+//		
+//		return mav;
+//	}
 	
 }
