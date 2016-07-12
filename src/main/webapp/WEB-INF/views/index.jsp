@@ -34,6 +34,10 @@
 <%@include file="/WEB-INF/views/include/common-lib.jsp" %>
 <script type="text/javascript" src="${ctx }/js/common.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 </script>
 
 </body>

@@ -1,8 +1,11 @@
 package com.museon.Controller;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
 
+=======
+>>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,9 +28,12 @@ public class HomeController {
 			HttpServletRequest request, HttpServletResponse response
 			) {
 		ModelAndView mav = new ModelAndView("/index");
+<<<<<<< HEAD
 		
 		List<Map<String, Object>> test = userService.test();
 		
+=======
+>>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 		return mav;
 	}
 	
@@ -61,4 +67,8 @@ public class HomeController {
 //		return mav;
 //	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
