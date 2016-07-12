@@ -21,12 +21,12 @@
 		<property name="password" value="${jdbc.password}"/>
 	</bean>
 	
-	<context:component-scan base-package="com.Remento.Service"/>
-	<context:component-scan base-package="com.Remento.Dao"/>
-	<context:component-scan base-package="com.Remento.Model"/>
-	<context:component-scan base-package="com.Remento.Util"/>
+	<context:component-scan base-package="com.museon.Service"/>
+	<context:component-scan base-package="com.museon.Dao"/>
+	<context:component-scan base-package="com.museon.Model"/>
+	<context:component-scan base-package="com.museon.Util"/>
 
-	<bean id="properties" class="com.Remento.Util.GetQuery">
+	<bean id="properties" class="com.museon.Util.GetQuery">
 		<property name="locations" value="/WEB-INF/properties/query.properties" />
 	</bean>
 	

@@ -1,225 +1,30 @@
 @import url(nanumbarungothic.css);
-
-html, body {
-	margin: 0;
-	padding: 0;
-}
-ul, ol, li {
-	padding: 0;
-	list-style: none;
-}
-#wrap {
-	min-width: 980px;
+@font-face {
+  font-family: 'Existence-Light';
+/*   src: url('../fonts/webfont.eot'); IE9 Compat Modes */
+  src: 
+/*   	   url('webfont.eot?#iefix') format('embedded-opentype'), IE6-IE8 */
+/*        url('webfont.woff2') format('woff2'), Super Modern Browsers */
+/*        url('webfont.woff') format('woff'), Pretty Modern Browsers */
+       url('../fonts/Existence-Light.ttf')  format('truetype') /* Safari, Android, iOS */
+/*        url('webfont.svg#svgFontName') format('svg'); Legacy iOS */
 }
 
-#header {
-	position: absolute;
-	z-index: 100;
-	width: 100%;
-	min-width: 980px;
-	transition: background-color 300ms linear;
-}
-
-.blind {
-	display: block;
-	overflow: hidden;
-	position: absolute;
-	top: -1000em;
-	left: 0;
-}
-
-.lnb {
-	padding: 15px 30px;
-}
-.lnb .logo {
-	margin: 0;
-	padding: 0;
-}
-.lnb svg {
-	fill: #fff;
-}
-
-#header.sticky-header {
-	position: fixed;
-	transition: top 0.2s;
-	background: rgba(0,0,0,0.6);
-	border-bottom: 1px solid rgba(0, 0, 0, .6);
-	
-}
-.s-menu {
-	position: relative;
-}
-.s-menu:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-.s-menu > ul:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-.s-menu > ul {
-	margin: 0;
-}
-.s-menu > ul > li {
-	float: left;
-}
-.s-menu > ul > li > a {
-	display: block;
-	width: 100px;
-	color: #fff;
-	text-decoration: none;
-}
-.s-menu > ul > li > a {
-	font-size: 18px;
-	line-height:46px;
-	font-family: "Nanum Barun Gothic", sans-serif;
-}
-
-/* @media (max-width: 980px) {  */
-/* 	.s-menu > ul > li > a { */
-/* 		font-size: 14px; */
-/* 		line-height:37px; */
-/* 		font-family: "Nanum Barun Gothic", sans-serif; */
-/* 	} */
-/* } */
-
-.s-menu li > ul {
-	display: none;
-}
-.s-menu > ul > .header-icon {
-	overflow: hidden;
-	display:block;
-	margin-left: 10px;
-	width: 40px;
-	height:37px;
-	background-image: url("../images/header_icons.png");
-}
-.header-icon.customer {
-	background-position: 0 0;
-}
-.header-icon.basket {
-	background-position: -60px 0;
-}
-.header-icon a {
-	display: block;
-	width: 100%;
-	height: 100%;
-}
-.drop-menu {
-	position: absolute;
-	padding: 0;
-	width: 120px;
-	background: #fff;
-}
-.drop-menu li > a {
-	display: block;
-	padding: 10px;
-	color: #000;
-	font-size: 12px;
-	border-bottom: 1px solid rgba(0, 0, 0, .05);
-}
-.drop-menu li:hover {
-	background-color: rgba(0, 0, 0, .05);
-}
-#header.sticky-header-up {
-	top: -150px;
-}
-#header.sticky-header-down {
-	top: 0;
-}
-
-.mouse-pointer {
-	cursor: pointer !important;
-}
-
-.text-box.first {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	margin: 0 auto;
-	text-align: center;
-	color: #fff;
-	text-shadow: 0 0 10px rgba(0, 0, 0, .5);
-}
-.text-box {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	margin: 0 auto;
-	text-align: center;
+.btn-maincolor {
+	background: #383325;
 	color: #fff;
 }
-.text-box.first h4 {
-	fill: #fff;
-}
-.text-box.first svg {
-	margin-bottom: -20px;
-}
-.text-box.first em, small {
-	font-size: 20px;
-	font-style: normal;
-	letter-spacing: 5px;
-}
-.text-box.first p {
-	margin: 0;
-	font-size: 42px;
-}
-.text-box.first small {
-	letter-spacing: 13px;
-}
-.text-box .under-line {
-	display: block;
-	margin: 0 auto 20px;
-	width: 50px;
-	height: 6px;
-	background: #fff;
-	border-radius: 5px;
+.btn-maincolor:HOVER,
+.btn-maincolor:FOCUS {
+	color: #fff;
 }
 
-.title-text {
-	font-size: 50px;
-	font-weight: 100;
-	font-family: "Nanum Barun Gothic", sans-serif;
-}
-.title-text b {
-	font-weight: bold;
+.btn-orangecolor {
+	background: #f7bc14;
+	color: #fff;
 }
 
-.text-box h4 {
-	font-size: 45px;
-	font-weight: 100;
-}
-.text-box p {
-	font-family: "돋움", "dotum", dotum, sans-serif;
-}
-
-.transper-btn {
-	background: none;
-	border: 1px solid #fff;
-	color: #fff !important;
-}
-.main-color-btn {
-	background: none;
-	border: 1px solid #ff9900;
-	color: #ff9900 !important;
-}
-
-.floating-box {
-	
-}
-.floating-box:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-.title-box h4 {
-	font-size: 45px;
-}
-.title-box p {
-	font-size: 12px;
-	font-family: 'dotum', sans-serif;
+.btn-orangecolor:HOVER,
+.btn-orangecolor:FOCUS {
+	color: #fff;
 }

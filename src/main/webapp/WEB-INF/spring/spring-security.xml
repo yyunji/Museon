@@ -34,6 +34,6 @@
     	<authentication-provider ref="securityProvider"/>
     </authentication-manager>
     
-    <beans:bean id="securityProvider" class="com.Remento.Security.SecurityProvider"/>
+    <beans:bean id="securityProvider" class="com.museon.Security.SecurityProvider"/>
     
 </beans:beans>

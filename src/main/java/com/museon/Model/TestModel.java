@@ -1,4 +1,4 @@
-package com.Remento.Model;
+package com.museon.Model;
 
 import java.util.ArrayList;
 import java.util.Collection;
