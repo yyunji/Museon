@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-<<<<<<< HEAD
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
@@ -34,15 +33,4 @@
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<constructor-arg ref="dataSource" />
 	</bean>
-=======
-	xmlns:google="http://www.springframework.org/schema/social/google"
-	xsi:schemaLocation="http://www.springframework.org/schema/social/google http://www.springframework.org/schema/social/spring-social-google.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	
-	
-	<context:component-scan base-package="com.museon.Service" />		
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 </beans>

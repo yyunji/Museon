@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Build-Jdk: 1.7.0_79
 Built-By: THES
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Build-Jdk: 1.7.0_79
-Built-By: THES
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9

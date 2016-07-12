@@ -76,10 +76,6 @@
 
 
 <script type="text/javascript">
-<<<<<<< HEAD
-=======
-
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 var $form = $(".signup-wrap form"),
 	$input = $form.find("input");
 	
@@ -88,10 +84,6 @@ var $form = $(".signup-wrap form"),
 	$input.on("blur", function ( event ) {
 		validation( $(this) );
 	});
-<<<<<<< HEAD
-=======
-
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 function validation ( type ) {
 	
 	if ( type.hasClass( "userId" ) ) {
@@ -105,10 +97,6 @@ function validation ( type ) {
 		}
 	}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
 </script>
 
 </body>

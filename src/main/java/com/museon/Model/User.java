@@ -1,10 +1,6 @@
 package com.museon.Model;
 
 public class User {
-<<<<<<< HEAD
-
-}
-=======
 	private int id;
 	private String userEmail;
 	private String userId;
@@ -43,4 +39,3 @@ public class User {
 	
 	
 }
->>>>>>> song
