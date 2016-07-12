@@ -1,4 +1,4 @@
-package com.Remento.Security;
+package com.museon.Security;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import com.Remento.Model.TestModel;
+import com.museon.Model.TestModel;
 
 @Component
 public class SecurityProvider implements AuthenticationProvider {

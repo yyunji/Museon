@@ -1,4 +1,4 @@
-package com.Remento.Dao;
+package com.museon.Dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,18 +9,15 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.Remento.Util.GetQuery;
-
-@Repository("theDao")
-public class TestDao {
+@Repository("userDao")
+public class UserDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	@Autowired
-	GetQuery query;
-	
 	public List<Map<String, Object>> test () {
-		String sql = query.get("testDao.test");
+		
+		String sql = "SELECT * FROM museon_member";
+		
 		try {
 			return jdbcTemplate.queryForList(sql);
 		} catch (DataAccessException e) {
@@ -30,6 +27,4 @@ public class TestDao {
 		
 		return new ArrayList<Map<String,Object>>();
 	}
-	
-	
 }

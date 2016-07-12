@@ -1,4 +1,4 @@
-package com.Remento.Dao;
+package com.museon.Dao;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.Remento.Service;
+package com.museon.Service;
 
 import org.springframework.stereotype.Service;
 

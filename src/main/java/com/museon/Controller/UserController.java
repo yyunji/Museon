@@ -1,4 +1,4 @@
-package com.Remento.Controller;
+package com.museon.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Remento.Model.TestModel;
+import com.museon.Model.TestModel;
 
 import junit.framework.Test;
 
