@@ -27,4 +27,22 @@ public class UserDao {
 		
 		return new ArrayList<Map<String,Object>>();
 	}
+	
+	public int idCheck ( String userId ) {
+		
+		String sql = "select count(*) from museon_member where user_id = ?";
+		
+		Object[] params = {
+				userId
+		};
+		
+		try {
+			return jdbcTemplate.queryForObject(sql, params, Integer.class);
+		} catch (DataAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }

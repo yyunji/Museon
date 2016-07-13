@@ -18,6 +18,10 @@ public class UserService {
 		return userDao.test();
 	}
 	
+	public int idCheck ( String userId ) {
+		return userDao.idCheck(userId);
+	}
+	
 //	public int signCheck ( String userId, String userPw ) {
 //		return userDao.signCheck( userId, userPw );
 //	}
