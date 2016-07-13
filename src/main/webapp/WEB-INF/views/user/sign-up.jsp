@@ -80,7 +80,8 @@ var ctx = "${ctx }";
 
 <script type="text/javascript">
 var $form = $(".signup-wrap form"),
-	$input = $form.find("input");
+	$input = $form.find("input"),
+	checkNum = 0;
 	
 	console.log( $input );
 	
@@ -91,6 +92,26 @@ function validation ( type ) {
 	
 	if ( type.hasClass( "userId" ) ) {
 		console.log( "아이디" );
+		$.ajax({
+			cache : false,
+			async : false,
+			url : ctx + "/idCheck",
+			method : "post",
+			data : {
+				userId : type.val()
+			}
+		}).done ( function ( response ) {
+			checkNum = response;
+		}).fail ( function ( error ) {
+			
+		});
+		
+		console.log( checkNum );
+		
+		if ( checkNum > 0 ) {
+			return false;
+		}
+		
 	} else if ( type.hasClass( "userPw" ) ) {
 		if ( type.val() === "" || type.val() == null ) {
 			console.log( "비밀번호 잘못 입력" );
@@ -115,13 +136,24 @@ function validation ( type ) {
 }
 
 $form.submit( function ( event ) {
+	
+	if ( checkNum > 0 ) {
+		return false;
+	}
+	
 	console.log( "submit" );
 	console.log( ctx );
 	
 	$.ajax({
 		cache : false,
 		url : ctx + "/signProc",
-		method : "post"
+		method : "post",
+		data : {
+			userId : $form.find(".userId"),
+			userPw : $form.find(".userPw"),
+			userName : $form.find(".userName"),
+			userEmail : $form.find(".userEmail")
+		}
 	}).done ( function ( response ) {
 		console.log( response );
 	}).fail ( function ( error ) {
