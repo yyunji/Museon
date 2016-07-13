@@ -21,9 +21,8 @@ public class UserService {
 	public int idCheck ( String userId ) {
 		return userDao.idCheck(userId);
 	}
-	
-//	public int signCheck ( String userId, String userPw ) {
-//		return userDao.signCheck( userId, userPw );
-//	}
-	
+
+	public int emailCheck ( String userEmail ) {
+		return userDao.emailCheck(userEmail);
+	}
 }

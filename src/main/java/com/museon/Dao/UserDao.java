@@ -45,4 +45,23 @@ public class UserDao {
 		
 		return 0;
 	}
+	
+	public int emailCheck  ( String userEmail ) {
+		
+		String sql = "select count(*) from museon_member where user_email = ?";
+		
+		Object[] params = {
+				userEmail
+		};
+		
+		try {
+			return jdbcTemplate.queryForObject(sql, params, Integer.class);
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	//// System.out.println( "---------------------------Dao---------------------------" )
 }

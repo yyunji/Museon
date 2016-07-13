@@ -18,7 +18,7 @@ import com.museon.Service.UserService;
 @Controller
 public class HomeController {
 	@Autowired
-	UserService userService;
+	UserService userService; 
 	
 	@RequestMapping ( value="/" )
 	public ModelAndView index (
@@ -27,7 +27,7 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("/index");
 		
 		List<Map<String, Object>> test = userService.test();
-		
+		mav.addObject("test", test);
 		return mav;
 	}
 	
