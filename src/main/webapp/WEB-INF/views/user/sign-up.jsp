@@ -146,7 +146,13 @@ $form.submit( function ( event ) {
 	$.ajax({
 		cache : false,
 		url : ctx + "/signProc",
-		method : "post"
+		method : "post",
+		data : {
+			userId : $form.find(".userId"),
+			userPw : $form.find(".userPw"),
+			userName : $form.find(".userName"),
+			userEmail : $form.find(".userEmail")
+		}
 	}).done ( function ( response ) {
 		console.log( response );
 	}).fail ( function ( error ) {
