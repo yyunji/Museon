@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="Remento">
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
-	<wb-module deploy-name="Museon">
->>>>>>> 1f55b7da6b8d4b90341f60020cbc6c4983aebaf9
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
 		<property name="java-output-path" value="target/classes"/>
         <property name="context-root" value="Controller"/>
 	</wb-module>
