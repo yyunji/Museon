@@ -55,7 +55,6 @@ public class CommonRestController {
 		return new ResponseEntity<Integer>(req, headers, HttpStatus.OK);
 	}
 	
-	
 	@RequestMapping( value="/emailCheck", method = RequestMethod.POST )
 	public ResponseEntity<Integer> emailCheck (
 			@RequestParam(value="userEmail") String userEmail
