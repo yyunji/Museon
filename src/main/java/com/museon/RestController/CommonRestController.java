@@ -23,7 +23,9 @@ public class CommonRestController {
 	
 	@RequestMapping( value="/signProc", method= RequestMethod.POST )
 	@ResponseBody
-	public ResponseEntity<Integer> signProc () {
+	public ResponseEntity<Integer> signProc (
+			
+			) {
 		
 		int req = 0;
 		
@@ -40,9 +42,8 @@ public class CommonRestController {
 	@ResponseBody
 	public ResponseEntity<Integer> idCheck (
 			@RequestParam(value="userId") String userId
+			
 			) {
-		
-		
 		int req = userService.idCheck(userId);
 		
 		// req Service calling
@@ -53,5 +54,23 @@ public class CommonRestController {
 		
 		return new ResponseEntity<Integer>(req, headers, HttpStatus.OK);
 	}
-
+	
+	
+	@RequestMapping( value="/emailCheck", method = RequestMethod.POST )
+	public ResponseEntity<Integer> emailCheck (
+			@RequestParam(value="userEmail") String userEmail
+			){
+		
+//		int req = 0;
+		int req = userService.emailCheck(userEmail);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		
+		return new ResponseEntity<Integer>(req, headers, HttpStatus.OK);
+		
+	}
+			
+			
 }

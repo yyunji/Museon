@@ -131,7 +131,23 @@ function validation ( type ) {
 		
 		if ( ( splitStr.length > 2 || splitStr.length < 2 ) || splitStr[1].length < 1) {
 			console.log( "이메일 잘못 입력" )
+			return false;
 		}
+		
+		$.ajax({
+			cache : false,
+			async : false,
+			url : ctx + "/emailCheck",
+			method : "post",
+			data : {
+				userEmail : type.val()
+			}
+		}).done ( function ( response ) {
+			checkNum = response;
+			console.log( response );
+		}).fail ( function ( error ) {
+			
+		});
 	}
 }
 
@@ -139,6 +155,11 @@ $form.submit( function ( event ) {
 	if ( checkNum > 0 ) {
 		return false;
 	}
+	
+	if ( $form.find(".userPw").val() !== $form.find(".pwCheck").val() ) {
+		alert( "비밀번호가 맞지 않습니다." );
+		return false;
+	} 
 	
 	console.log( "submit" );
 	console.log( ctx );

@@ -22,5 +22,7 @@ public class UserService {
 		return userDao.idCheck(userId);
 	}
 
-	
+	public int emailCheck ( String userEmail ) {
+		return userDao.emailCheck(userEmail);
+	}
 }

@@ -18,7 +18,7 @@ import com.museon.Service.UserService;
 @Controller
 public class HomeController {
 	@Autowired
-	UserService userService;
+	UserService userService; 
 	
 	@RequestMapping ( value="/" )
 	public ModelAndView index (
