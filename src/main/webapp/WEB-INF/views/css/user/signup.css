@@ -1,0 +1,76 @@
+body {
+	background: #eeeeee;
+}
+#wrap {
+	min-width: 500px;
+}
+#header {
+	height: 85px;
+	background: #f7bc14;
+}
+#header h1 {
+	margin: 0;
+	color: #fff;
+	text-align: center;
+	line-height: 85px;
+	font-family: "Existence-Light", san-serif;
+}
+
+.signup-wrap {
+	margin: 60px auto 60px;
+	padding: 25px;
+	width: 500px;
+	border: 1px solid #bbbbbb;
+	background: #fff;
+}
+.signup-wrap > .signup-title {
+	text-align: center;
+	margin-bottom: 30px;
+	font-family: "Nanum Barun Gothic", sans-serif;
+	font-size: 40px;
+	color: #f7bc14
+}
+
+.signup-wrap > .signup-title > em {
+	display: block;
+	margin: 10px auto 0;
+	width: 100px;
+	height: 2px;
+	background: #f7bc14;
+}
+.form-horizontal .control-label {
+	margin: 0;
+}
+.form-horizontal .form-group {
+	margin :0;
+}
+
+.signup-wrap lable {
+	margin: 0;
+	padding: 0;
+	width: 144px !important;
+	font-family: "Nanum Barun Gothic", sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color: #7c7c7c;
+	line-height: 60px;
+}
+.signup-wrap .col-sm-10 {
+	margin: 0;
+	margin-left: 20px;
+	padding: 0;
+	width: 284px !important;
+}
+.signup-wrap .col-sm-10 input {
+	padding: 0 0 0 10px;
+	height: 60px;
+	border-radius: 0;
+	border: 1px solid #cccccc
+}
+.signup-wrap .btn-wrap {
+	margin-top: 80px;
+}
+.signup-wrap .btn-wrap button {
+	height: 83px;
+	border-radius: 0;
+}

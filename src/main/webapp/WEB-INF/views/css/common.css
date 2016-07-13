@@ -1,8 +1,30 @@
+@import url(nanumbarungothic.css);
+@font-face {
+  font-family: 'Existence-Light';
+/*   src: url('../fonts/webfont.eot'); IE9 Compat Modes */
+  src: 
+/*   	   url('webfont.eot?#iefix') format('embedded-opentype'), IE6-IE8 */
+/*        url('webfont.woff2') format('woff2'), Super Modern Browsers */
+/*        url('webfont.woff') format('woff'), Pretty Modern Browsers */
+       url('../fonts/Existence-Light.ttf')  format('truetype') /* Safari, Android, iOS */
+/*        url('webfont.svg#svgFontName') format('svg'); Legacy iOS */
+}
+
 .btn-maincolor {
 	background: #383325;
 	color: #fff;
 }
 .btn-maincolor:HOVER,
 .btn-maincolor:FOCUS {
+	color: #fff;
+}
+
+.btn-orangecolor {
+	background: #f7bc14;
+	color: #fff;
+}
+
+.btn-orangecolor:HOVER,
+.btn-orangecolor:FOCUS {
 	color: #fff;
 }

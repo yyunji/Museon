@@ -22,8 +22,9 @@
 	   </h1>
 	   
 	   <div class="login-btn-wrap">
-	      <button type="button" class="btn btn-maincolor btn-lg btn-block">구글계정으로 로그인</button>
+	      <button type="button" class="btn btn-maincolor btn-lg btn-block google-login">구글계정으로 로그인</button>
 	      <button type="button" class="btn btn-maincolor btn-lg btn-block">페이스북계정으로 로그인</button>
+	      <button type="button" class="btn btn-maincolor btn-lg btn-block" onclick=" location.href='${ctx}/signUp' ">회원가입</button>
 	   </div>
 	</div>
 
