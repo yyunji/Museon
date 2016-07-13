@@ -34,7 +34,6 @@
 <%@include file="/WEB-INF/views/include/common-lib.jsp" %>
 <script type="text/javascript" src="${ctx }/js/common.js"></script>
 <script type="text/javascript">
-
 </script>
 
 </body>

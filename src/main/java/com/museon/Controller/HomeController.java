@@ -1,5 +1,8 @@
 package com.museon.Controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +25,9 @@ public class HomeController {
 			HttpServletRequest request, HttpServletResponse response
 			) {
 		ModelAndView mav = new ModelAndView("/index");
+		
+		List<Map<String, Object>> test = userService.test();
+		
 		return mav;
 	}
 	

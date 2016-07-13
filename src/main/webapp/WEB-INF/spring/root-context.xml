@@ -2,13 +2,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:google="http://www.springframework.org/schema/social/google"
-	xsi:schemaLocation="http://www.springframework.org/schema/social/google http://www.springframework.org/schema/social/spring-social-google.xsd
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
+	<bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="WEB-INF/config/driver.properties"/>
+	</bean>
+	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
 	
+	<context:component-scan base-package="com.museon.Service"/>
+	<context:component-scan base-package="com.museon.Dao"/>
+	<context:component-scan base-package="com.museon.Model"/>
+	<context:component-scan base-package="com.museon.Util"/>
+
+	<bean id="properties" class="com.museon.Util.GetQuery">
+		<property name="locations" value="/WEB-INF/properties/query.properties" />
+	</bean>
 	
-	<context:component-scan base-package="com.museon.Service" />		
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
 </beans>

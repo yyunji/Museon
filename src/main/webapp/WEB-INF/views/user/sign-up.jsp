@@ -76,7 +76,6 @@
 
 
 <script type="text/javascript">
-
 var $form = $(".signup-wrap form"),
 	$input = $form.find("input");
 	
@@ -85,7 +84,6 @@ var $form = $(".signup-wrap form"),
 	$input.on("blur", function ( event ) {
 		validation( $(this) );
 	});
-
 function validation ( type ) {
 	
 	if ( type.hasClass( "userId" ) ) {
@@ -99,7 +97,6 @@ function validation ( type ) {
 		}
 	}
 }
-
 </script>
 
 </body>
