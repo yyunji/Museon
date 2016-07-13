@@ -9,6 +9,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/library/material.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/library/lazyload.js"></script>
 
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/remento-common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/museon-common.js"></script>
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/drop-menu.js"></script>

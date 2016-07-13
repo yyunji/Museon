@@ -27,7 +27,7 @@
 	                   회원가입
 	           <em></em>
 	         </div>
-	         <form action="" class="form-horizontal">
+	         <form action="${ctx }/signProc" class="form-horizontal" method="post">
 	            <div class="form-group">
 	               <lable class="col-sm-2 control-label">아이디</lable>
 	               <div class="col-sm-10">
@@ -63,7 +63,7 @@
 	            </div>
 	            
 	            <div class="btn-wrap">
-	               <button type="button" class="btn btn-orangecolor btn-lg btn-block">회원가입</button>
+	               <button type="submit" class="btn btn-orangecolor btn-lg btn-block">회원가입</button>
 	               <button type="button" class="btn btn-default btn-lg btn-block" onclick=" location.href='${ctx}/' ">뒤로가기</button>
 	            </div>
 	         </form>
@@ -74,6 +74,9 @@
 
 <jsp:include page="/WEB-INF/views/include/common-lib.jsp"></jsp:include>
 
+<script type="text/javascript">
+var ctx = "${ctx }";
+</script>
 
 <script type="text/javascript">
 var $form = $(".signup-wrap form"),
@@ -88,8 +91,21 @@ function validation ( type ) {
 	
 	if ( type.hasClass( "userId" ) ) {
 		console.log( "아이디" );
-	}
-	else if ( type.hasClass("userEmail") ) {
+	} else if ( type.hasClass( "userPw" ) ) {
+		if ( type.val() === "" || type.val() == null ) {
+			console.log( "비밀번호 잘못 입력" );
+			return false;
+		}
+	} else if ( type.hasClass( "pwCheck" ) ) {
+		if ( type.val() === "" || type.val() == null ) {
+			return false;
+		}
+		
+		if ( type.val() !== $form.find( ".userPw" ).val() ) {
+			console.log( "비밀번호 다름" );
+		}
+		console.log( $form.find( ".userPw" ) );
+	} else if ( type.hasClass( "userEmail" ) ) {
 		var splitStr = type.val().split("@");
 		
 		if ( ( splitStr.length > 2 || splitStr.length < 2 ) || splitStr[1].length < 1) {
@@ -97,6 +113,22 @@ function validation ( type ) {
 		}
 	}
 }
+
+$form.submit( function ( event ) {
+	console.log( "submit" );
+	console.log( ctx );
+	
+	$.ajax({
+		cache : false,
+		url : ctx + "/signProc",
+		method : "post"
+	}).done ( function ( response ) {
+		console.log( response );
+	}).fail ( function ( error ) {
+		
+	});
+	return false;
+});
 </script>
 
 </body>
