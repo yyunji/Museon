@@ -136,7 +136,6 @@ function validation ( type ) {
 }
 
 $form.submit( function ( event ) {
-	
 	if ( checkNum > 0 ) {
 		return false;
 	}
