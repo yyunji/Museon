@@ -27,7 +27,7 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("/index");
 		
 		List<Map<String, Object>> test = userService.test();
-		
+		mav.addObject("test", test);
 		return mav;
 	}
 	

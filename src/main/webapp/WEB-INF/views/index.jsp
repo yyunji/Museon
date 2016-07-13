@@ -27,6 +27,11 @@
 	      <button type="button" class="btn btn-maincolor btn-lg btn-block" onclick=" location.href='${ctx}/signUp' ">회원가입</button>
 	   </div>
 	</div>
+	<c:forEach items="${test }" var="test">
+		${test.user_id }
+	</c:forEach>
+	
+
 
 </div>
 
