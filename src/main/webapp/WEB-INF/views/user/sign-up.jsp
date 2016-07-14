@@ -32,6 +32,7 @@
 	               <lable class="col-sm-2 control-label">아이디</lable>
 	               <div class="col-sm-10">
 	                  <input type="text" class="form-control userId" id="userId" placeholder="아이디를 입력해주세요.">
+	                  <p class="text-danger hide">아이디를 입력해주세요.</p>
 	               </div>
 	            </div>
 	            
@@ -39,6 +40,7 @@
 	               <lable class="col-sm-2 control-label">비밀번호</lable>
 	               <div class="col-sm-10">
 	                  <input type="password" class="form-control userPw" id="userPw" placeholder="비밀번호를 입력해주세요.">
+	                  <p class="text-danger hide">비밀번호를 입력해주세요.</p>
 	               </div>
 	            </div>
 	            
@@ -46,19 +48,22 @@
 	               <lable class="col-sm-2 control-label">비밀번호 확인</lable>
 	               <div class="col-sm-10">
 	                  <input type="password" class="form-control pwCheck" class="pwCheck" placeholder="비밀번호를 한번 더 입력해주세요.">
+	                  <p class="text-danger hide">비밀번호를 한번 더 입력해주세요.</p>
 	               </div>
 	            </div>
 	            
 	            <div class="form-group">
 	               <lable class="col-sm-2 control-label">이름</lable>
 	               <div class="col-sm-10">
-	                  <input type="text" class="form-control userName" id="userName" placeholder="아이디를 입력해주세요.">
+	                  <input type="text" class="form-control userName" id="userName" placeholder="이름을 입력해주세요.">
+	                  <p class="text-danger hide">이름을 입력해주세요.</p>
 	               </div>
 	            </div>
 	            <div class="form-group">
 	               <lable class="col-sm-2 control-label">이메일</lable>
 	               <div class="col-sm-10">
 	                  <input type="text" class="form-control userEmail" id="userEmail" placeholder="이메일을 입력해주세요.">
+	                  <p class="text-danger hide">이메일을 입력해주세요.</p>
 	               </div>
 	            </div>
 	            
@@ -88,17 +93,24 @@ var $form = $(".signup-wrap form"),
 	$input.on("blur", function ( event ) {
 		validation( $(this) );
 	});
-function validation ( type ) {
+function validation ( input ) {
+	var validate_state = true;
+	validate_state = showErrorMsg( input );
 	
-	if ( type.hasClass( "userId" ) ) {
-		console.log( "아이디" );
+	if ( !validate_state ) {
+		return false;
+	}
+	
+	console.log( validate_state );
+	
+	if ( input.hasClass( "userId" ) ) {
 		$.ajax({
 			cache : false,
 			async : false,
 			url : ctx + "/idCheck",
 			method : "post",
 			data : {
-				userId : type.val()
+				userId : input.val()
 			}
 		}).done ( function ( response ) {
 			checkNum = response;
@@ -106,28 +118,27 @@ function validation ( type ) {
 			
 		});
 		
-		console.log( checkNum );
-		
 		if ( checkNum > 0 ) {
+			input.next().text("이미 사용중인 아이디입니다.");
 			return false;
 		}
 		
-	} else if ( type.hasClass( "userPw" ) ) {
-		if ( type.val() === "" || type.val() == null ) {
+	} else if ( input.hasClass( "userPw" ) ) {
+		if ( input.val() == null || input.val() === "" ) {
 			console.log( "비밀번호 잘못 입력" );
 			return false;
 		}
-	} else if ( type.hasClass( "pwCheck" ) ) {
-		if ( type.val() === "" || type.val() == null ) {
+	} else if ( input.hasClass( "pwCheck" ) ) {
+		if ( input.val() == null || input.val() === "" ) {
 			return false;
 		}
 		
-		if ( type.val() !== $form.find( ".userPw" ).val() ) {
+		if ( input.val() !== $form.find( ".userPw" ).val() ) {
 			console.log( "비밀번호 다름" );
 		}
 		console.log( $form.find( ".userPw" ) );
-	} else if ( type.hasClass( "userEmail" ) ) {
-		var splitStr = type.val().split("@");
+	} else if ( input.hasClass( "userEmail" ) ) {
+		var splitStr = input.val().split("@");
 		
 		if ( ( splitStr.length > 2 || splitStr.length < 2 ) || splitStr[1].length < 1) {
 			console.log( "이메일 잘못 입력" )
@@ -140,7 +151,7 @@ function validation ( type ) {
 			url : ctx + "/emailCheck",
 			method : "post",
 			data : {
-				userEmail : type.val()
+				userEmail : input.val()
 			}
 		}).done ( function ( response ) {
 			checkNum = response;
@@ -152,6 +163,12 @@ function validation ( type ) {
 }
 
 $form.submit( function ( event ) {
+	var submitState = true;
+	submitState = submitValidation( $form );
+	if ( !submitState ) {
+		return false;
+	}
+	
 	if ( checkNum > 0 ) {
 		return false;
 	}
@@ -160,9 +177,6 @@ $form.submit( function ( event ) {
 		alert( "비밀번호가 맞지 않습니다." );
 		return false;
 	} 
-	
-	console.log( "submit" );
-	console.log( ctx );
 	
 	$.ajax({
 		cache : false,
@@ -181,6 +195,53 @@ $form.submit( function ( event ) {
 	});
 	return false;
 });
+
+function showErrorMsg ( input, type ) {
+	
+	
+	if ( input.hasClass( "userId" ) ) {
+		if ( input.val() === null || input.val() === "" ) {
+			input.next().text("아이디를 입력해주세요.")
+		}
+	}
+	
+	if ( input.hasClass( "pwCheck" ) ) {
+		if ( input.val() === null || input.val() === "" ) {
+			input.next().text("비밀번호를 한번 더 입력해주세요.")
+		} else if ( input.val() !== $form.find( ".userPw" ).val() ) {
+			input.val("").focus();
+			input.next().addClass("show").removeClass("hide").text("비밀번호가 일치하지 않습니다.");
+			return false;
+		} else {
+			input.next().addClass("hide").removeClass("show");
+		}
+	}
+	
+	if ( input.val() === null || input.val() === "" ) {
+		input.next().addClass("show").removeClass("hide");
+		return false;
+	} else {
+		input.next().addClass("hide").removeClass("show");
+	}
+	
+	return true;
+}
+
+function submitValidation () {
+	var formInput = $form.find("input"),
+		submitState = true;
+	
+	for ( var i = 0; i < formInput.length; i++ ) {
+		if ( $(formInput[i]).val() === null || $(formInput[i]).val() === "" ) {
+			$(formInput[i]).next().addClass("show").removeClass("hide");
+			submitState = false;
+		} else {
+			$(formInput[i]).next().addClass("hide").removeClass("show");
+			submitState = true;
+		}
+	}
+	return submitState;
+}
 </script>
 
 </body>
