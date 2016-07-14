@@ -223,7 +223,6 @@ function showErrorMsg ( input, type ) {
 	} else {
 		input.next().addClass("hide").removeClass("show");
 	}
-	
 	return true;
 }
 
