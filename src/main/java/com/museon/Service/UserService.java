@@ -1,6 +1,5 @@
 package com.museon.Service;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -24,5 +23,13 @@ public class UserService {
 
 	public int emailCheck ( String userEmail ) {
 		return userDao.emailCheck(userEmail);
+	}
+	
+	public int signUpProcess (
+			String userId,
+			String userPw,
+			String userName,
+			String userEmail) {
+		return userDao.signUpProcess(userId, userPw, userName, userEmail);		
 	}
 }

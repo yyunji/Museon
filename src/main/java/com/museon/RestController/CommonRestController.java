@@ -72,6 +72,23 @@ public class CommonRestController {
 		return new ResponseEntity<Integer>(req, headers, HttpStatus.OK);
 		
 	}
-			
+	
+	@RequestMapping( value="/signUpProcess", method = RequestMethod.POST )
+	public ResponseEntity<Integer> signUpProcess (
+			@RequestParam(value="userId") String userId,
+			@RequestParam(value="userId") String userPw,
+			@RequestParam(value="userId") String userName,
+			@RequestParam(value="userId") String userEmail
+			){
+		
+		int req = userService.signUpProcess(userId, userPw, userName, userEmail);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		
+		return new ResponseEntity<Integer>(req, headers, HttpStatus.OK);
+		
+	}
 			
 }

@@ -9,6 +9,9 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+
+// INSERT INTO museon_member (user_id, user_pw, user_name, user_email) VALUES (?, ?, ?, ?)
+
 @Repository("userDao")
 public class UserDao {
 	@Autowired
@@ -63,5 +66,25 @@ public class UserDao {
 		return 0;
 	}
 	
-	//// System.out.println( "---------------------------Dao---------------------------" )
+	
+	public int signUpProcess (String userId, String userPw, String userName, String userEmail) {
+		
+		String sql = "insert into museon_member (user_id, user_pw, user_name, user_email) values (?, ?, ?, ?)";
+	
+		Object[] params = {
+				userId,
+				userPw,
+				userName,
+				userEmail
+		};
+		
+		try {
+			return jdbcTemplate.update(sql, params);
+		} catch ( DataAccessException e ) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }
+	//// System.out.println( "---------------------------Dao---------------------------" )

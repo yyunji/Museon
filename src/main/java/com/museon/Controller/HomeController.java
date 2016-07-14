@@ -51,7 +51,7 @@ public class HomeController {
 //		
 //		int result = 0;
 //		
-//		result = userService.signCheck( userId, userPw );
+////		result = userService.signCheck( userId, userPw );
 //		
 //		
 //		if ( result >= 1 ) {
