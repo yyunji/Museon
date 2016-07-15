@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.museon.Dao.UserDao;
+import com.museon.Model.User;
 
 @Service
 public class UserService {
@@ -25,11 +26,7 @@ public class UserService {
 		return userDao.emailCheck(userEmail);
 	}
 	
-	public int signUpProcess (
-			String userId,
-			String userPw,
-			String userName,
-			String userEmail) {
-		return userDao.signUpProcess(userId, userPw, userName, userEmail);		
+	public int signUpProcess ( User user ) {
+		return userDao.signUpProcess( user );		
 	}
 }

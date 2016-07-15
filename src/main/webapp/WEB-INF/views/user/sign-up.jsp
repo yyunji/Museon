@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="com.museon.Common.MuseonCommon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -244,6 +245,8 @@ function submitValidation () {
 </script>
 
 </body>
+=======
+>>>>>>> b374bbd05a06a91976f6162cc5b73f07963026cb
 <%@page import="com.museon.Common.MuseonCommon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

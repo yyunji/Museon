@@ -7,7 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+
+import com.museon.Model.User;
 
 
 // INSERT INTO museon_member (user_id, user_pw, user_name, user_email) VALUES (?, ?, ?, ?)
@@ -66,19 +70,18 @@ public class UserDao {
 		return 0;
 	}
 	
-	
-	public int signUpProcess (String userId, String userPw, String userName, String userEmail) {
-		
+	public int signUpProcess ( User user ) {
 		String sql = "insert into museon_member (user_id, user_pw, user_name, user_email) values (?, ?, ?, ?)";
 	
 		Object[] params = {
-				userId,
-				userPw,
-				userName,
-				userEmail
+				user.getUserId(),
+				user.getUserPw(),
+				user.getUserName(),
+				user.getUserEmail()
 		};
 		
 		try {
+//			KeyHolder holder = new GeneratedKeyHolder();
 			return jdbcTemplate.update(sql, params);
 		} catch ( DataAccessException e ) {
 			e.printStackTrace();
