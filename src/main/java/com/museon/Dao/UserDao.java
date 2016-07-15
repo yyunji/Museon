@@ -1,5 +1,8 @@
 package com.museon.Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -70,8 +74,8 @@ public class UserDao {
 		return 0;
 	}
 	
-	public int signUpProcess ( User user ) {
-		String sql = "insert into museon_member (user_id, user_pw, user_name, user_email) values (?, ?, ?, ?)";
+	public int signUpProcess ( final User user ) {
+		final String sql = "insert into museon_member (user_id, user_pw, user_name, user_email) values (?, ?, ?, ?)";
 	
 		Object[] params = {
 				user.getUserId(),
@@ -81,8 +85,19 @@ public class UserDao {
 		};
 		
 		try {
-//			KeyHolder holder = new GeneratedKeyHolder();
-			return jdbcTemplate.update(sql, params);
+			KeyHolder holder = new GeneratedKeyHolder();
+			jdbcTemplate.update(new PreparedStatementCreator() {
+				
+				@Override
+				public PreparedStatement createPreparedStatement( Connection con ) throws SQLException {
+					// TODO Auto-generated method stub
+					PreparedStatement ps = con.prepareStatement( sql );
+					ps.setString(1, user.getUserId());
+					return null;
+				}
+			},holder);
+			
+			return holder.getKey().intValue();
 		} catch ( DataAccessException e ) {
 			e.printStackTrace();
 		}
